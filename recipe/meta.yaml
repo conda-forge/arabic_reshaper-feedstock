@@ -1,5 +1,5 @@
 {% set name = "arabic_reshaper" %}
-{% set version = "2.0.15" %}
+{% set version = "2.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3f3078db2a9a1c4f994145895e9193b1c01a1186547cea303e6fa920e9a00f0a
+  sha256: cf318fa5d51d2d224fa49bf6bdbbb4684f6bd2c068b75cfce0e607f89ac199dc
 
 build:
   noarch: python
-  number: 1
+  number: 0
   # Note: --no-deps is currently required due to https://github.com/conda/conda-build/issues/3254
   # Once resolved, it should be removed.
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
@@ -35,7 +35,7 @@ about:
   license: GPL-3.0
   license_family: GPL
   license_file: LICENSE
-  summary: "Reconstruct Arabic sentences to be used in applications that don't support Arabic"
+  summary: Reconstruct Arabic sentences to be used in applications that don't support Arabic
 
 extra:
   recipe-maintainers:
