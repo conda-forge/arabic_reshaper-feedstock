@@ -117,4 +117,5 @@ Feedstock Maintainers
 
 * [@hoechenberger](https://github.com/hoechenberger/)
 * [@kastman](https://github.com/kastman/)
+* [@mrakitin](https://github.com/mrakitin/)
 
