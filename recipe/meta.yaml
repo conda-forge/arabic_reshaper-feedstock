@@ -1,5 +1,5 @@
 {% set name = "arabic_reshaper" %}
-{% set version = "2.1.4" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e84b3b0ad8eae395641c94d3010b53bfed2c2b1ab80f25eb8cdc01019ddf6426
+  sha256: ffcd13ba5ec007db71c072f5b23f420da92ac7f268512065d49e790e62237099
 
 build:
   noarch: python
