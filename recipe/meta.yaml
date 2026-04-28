@@ -14,13 +14,15 @@ build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
+{% set python_min = "3.10" %}
+
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - hatchling
     - pip
   run:
-    - python >=3.10
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -28,6 +30,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
@@ -39,7 +42,6 @@ about:
 
 extra:
   recipe-maintainers:
-    - hoechenberger
     - kastman
     - mrakitin
     - mpcabd
