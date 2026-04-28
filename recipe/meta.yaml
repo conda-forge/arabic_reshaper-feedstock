@@ -1,5 +1,5 @@
 {% set name = "arabic_reshaper" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,41 +7,39 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ffcd13ba5ec007db71c072f5b23f420da92ac7f268512065d49e790e62237099
+  sha256: a0d9b2a9fa29b5f2c1d705f407adf6ca4242405b9cac0e5cc09e6c4f3f8fb68c
 
 build:
   noarch: python
-  number: 1
-  # Note: --no-deps is currently required due to https://github.com/conda/conda-build/issues/3254
-  # Once resolved, it should be removed.
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python >=3.10
+    - hatchling
     - pip
-    - setuptools
   run:
-    - python >={{ python_min }}
-    - setuptools
-    - configparser
-    - future
+    - python >=3.10
 
 test:
-  requires:
-    - python {{ python_min }}
   imports:
     - arabic_reshaper
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/mpcabd/python-arabic-reshaper
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: Reconstruct Arabic sentences to be used in applications that don't support Arabic
+  summary: Reconstruct Arabic sentences to be used in applications that do not support Arabic
 
 extra:
   recipe-maintainers:
     - hoechenberger
     - kastman
     - mrakitin
+    - mpcabd
